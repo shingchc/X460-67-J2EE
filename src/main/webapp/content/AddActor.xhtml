@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <table>
+                        <tr>
+                            <td>Id: </td>
+                            <td>
+                                <h:inputText value="#{actorBackingBean.id}" required="true">
+                                    <f:convertNumber/>
+                                </h:inputText>
+                            </td>
+                        </tr>
+                        <tr>                            
+                            <td>Name: </td>
+                            <td>
+                                <h:inputText value="#{actorBackingBean.name}" required="true"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>About: </td>
+                            <td>
+                                <h:inputTextarea value="#{actorBackingBean.about}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Movie Id: </td>
+                            <td>
+                                <h:inputText value="#{actorBackingBean.movieId}" >
+                                        <f:convertNumber/>
+                                </h:inputText>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+                <h:commandButton value="Back" action="/index" immediate="true"/>
+                <h:commandButton value="Add" action="/content/ListActors" actionListener="#{actorClientBean.addActor}"/>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
